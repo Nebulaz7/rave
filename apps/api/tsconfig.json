@@ -1,0 +1,34 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2023",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "baseUrl": "../../",
+    
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    "skipLibCheck": true,
+    "incremental": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "noFallthroughCasesInSwitch": false,
+    
+    "paths": {
+      "@rave/utils": ["packages/utils/src/index.ts"],
+      "@rave/types": ["packages/types/src/index.ts"]
+    }
+  },
+  "include": [
+    "src",
+    "../../packages/utils/src",
+    "../../packages/types/src"
+  ]
+}
