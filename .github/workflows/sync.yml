@@ -2,8 +2,8 @@ name: Sync Fork with Upstream
 
 on:
   schedule:
-    - cron: '0 3 * * *' # Runs every day at 3 AM UTC
-  workflow_dispatch:     # Allows manual trigger
+    - cron: '0 3 * * *'
+  workflow_dispatch:
 
 jobs:
   sync:
@@ -13,12 +13,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: true  # keep token so git push works
+          persist-credentials: true
+          fetch-depth: 0  # important: fetch full history
 
       - name: Set Up Git
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
+
+      - name: Pull From Origin (your fork)
+        run: |
+          git checkout main   # or master
+          git pull origin main
 
       - name: Add Upstream Remote
         run: |
@@ -27,7 +33,6 @@ jobs:
 
       - name: Merge Upstream Changes
         run: |
-          git checkout main   # change to master if your branch is master
           git merge upstream/main || { echo "Merge conflict"; exit 1; }
 
       - name: Push Changes
