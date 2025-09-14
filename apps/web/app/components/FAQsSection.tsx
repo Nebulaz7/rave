@@ -22,12 +22,12 @@ const FAQItem: React.FC<FAQItemProps> = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="w-[80%] mx-auto mb-6"
+      className="w-[80%] text-sm mx-auto mb-6"
     >
       <div
         onClick={onToggle}
         className={`
-          rounded-xl p-6 cursor-pointer 
+          rounded-xl text-sm p-6 cursor-pointer 
           bg-gradient-to-r from-black/80 via-black/70 to-black/80 
           backdrop-blur-xl shadow-lg 
           border border-white/10 
@@ -113,7 +113,7 @@ const FAQsSection = () => {
   ];
 
   return (
-    <div id="faqs" className="py-20 px-5 max-w-7xl mx-auto">
+    <div id="faqs" className="md:py-20 md:px-5 min-w-[90%] md:mx-auto">
       {/* Section Header */}
       <div className="text-center mb-16">
         <div className="inline-flex items-center justify-center px-4 py-2 border-sky-500 rounded-full bg-sky-500/10 border border-sky-500/20 mb-6">
